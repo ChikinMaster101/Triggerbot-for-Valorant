@@ -1,0 +1,42 @@
+//This script will allow a user to set up a triggerbot for the Valorant game. 
+
+//Declare and initialize necessary variables
+let enemyFovX = 0;
+let enemyFovY = 0;
+let enemyPositionX = 0;
+let enemyPositionY = 0;
+let enemyDirectionX = 0;
+let enemyDirectionY = 0;
+
+//Function to determine if a target is in the user's field of view
+function isTargetInFov(enemyFovX, enemyFovY, enemyPositionX, enemyPositionY) {
+    if (enemyPositionX <= enemyFovX && enemyPositionY <= enemyFovY) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//Function to determine if a target is moving towards the user
+function isTargetMovingTowardsUser(enemyDirectionX, enemyDirectionY) {
+    if (enemyDirectionX > 0 && enemyDirectionY > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+//Function to trigger bot
+function triggerBot() {
+    //Check if target is in field of view
+    let targetInFov = isTargetInFov(enemyFovX, enemyFovY, enemyPositionX, enemyPositionY);
+    //Check if target is moving towards user
+    let targetMovingTowardsUser = isTargetMovingTowardsUser(enemyDirectionX, enemyDirectionY)
+    //If both conditions are met, trigger bot 
+    if (targetInFov && targetMovingTowardsUser) {
+        //Trigger bot action
+    }
+}
+
+//Call triggerBot function
+triggerBot();
